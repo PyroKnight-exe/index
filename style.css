@@ -1,0 +1,394 @@
+:root {
+  --bg-color: #fdfaf6;
+  --text-primary: #3d2b2c;
+  --text-muted: #7a6365;
+  --accent: #e08b96;
+  --accent-light: #f7dadd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Handled smoothly by JS/user scroll */
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif; /* Elegant serif feels more human/premium */
+  color: var(--text-primary);
+  background: var(--bg-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Texture overlay for an organic, paper/film feel */
+.noise-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Dreamy glowing background blobs */
+.ambient-light {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: floatAmbient 15s infinite alternate ease-in-out;
+}
+
+.light-1 {
+  width: 250px; height: 250px;
+  background: #fce1e4;
+  top: -50px; right: -50px;
+}
+.light-2 {
+  width: 300px; height: 300px;
+  background: #fdf1e7;
+  bottom: 10%; left: -100px;
+  animation-delay: -5s;
+}
+.light-3 {
+  width: 200px; height: 200px;
+  background: #f1e4fc;
+  top: 40%; right: -80px;
+  animation-delay: -10s;
+}
+
+@keyframes floatAmbient {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.1); }
+  100% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.story-container {
+  width: min(100%, 480px); /* Mobile-first constraint */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
+  position: relative;
+}
+
+.content-wrapper {
+  text-align: center;
+}
+
+/* Typography elements */
+.cursive {
+  font-family: 'Dancing Script', cursive;
+}
+
+.hero {
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #8c3b4a; /* Deep romantic rose */
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(224, 139, 150, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.heart {
+  color: #df6879;
+  display: inline-block;
+}
+
+.heart.glow {
+  filter: drop-shadow(0 0 8px rgba(223, 104, 121, 0.6));
+  animation: heartbeat 2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  5% { transform: scale(1.15); }
+  10% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+}
+
+/* Scroll indicator */
+.scroll-prompt {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.7;
+}
+
+.scroll-prompt span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.mouse-wheel {
+  width: 20px;
+  height: 30px;
+  border: 1px solid var(--text-muted);
+  border-radius: 20px;
+  position: relative;
+}
+
+.mouse-wheel::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 10px); opacity: 0; }
+}
+
+/* The Letter Section */
+.letter {
+  justify-content: center;
+}
+
+.letter-paper {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 35px 25px;
+  box-shadow: 
+    0 10px 40px rgba(131, 88, 94, 0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.8);
+  position: relative;
+}
+
+.letter-paper::before {
+  /* Subtle tape or pin effect */
+  content: '';
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 80px; height: 25px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.letter-content p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin: 0 0 18px 0;
+  text-align: left;
+  position: relative;
+  /* Soft fade-in handled by JS */
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.letter-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Memories Section */
+.section-title {
+  font-size: 2.8rem;
+  color: #8c3b4a;
+  margin: 0 0 5px 0;
+}
+
+.section-desc {
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 40px 0;
+}
+
+.polaroid-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.polaroid {
+  background: white;
+  padding: 12px 12px 25px 12px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  border-radius: 2px;
+  width: 85%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.polaroid .img-wrap {
+  width: 100%;
+  aspect-ratio: 1/1; /* Square photos */
+  overflow: hidden;
+  background: #eee;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid .caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 15px;
+  color: #4a4a4a;
+}
+
+/* Scatter effect */
+.p-left { transform: rotate(-4deg); align-self: flex-start; }
+.p-right { transform: rotate(5deg); align-self: flex-end; }
+.p-center { transform: rotate(-1deg); }
+
+/* Special Message */
+.special {
+  text-align: center;
+}
+
+.special-statement {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #6a3e47;
+}
+
+.special-statement .word {
+  opacity: 0;
+  display: inline-block;
+  white-space: pre-wrap;
+  transform: translateY(10px) rotate(1deg);
+}
+
+/* Final CTA */
+.final {
+  text-align: center;
+}
+
+.final-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  color: #8c3b4a;
+  margin: 0 0 40px 0;
+}
+
+.organic-btn {
+  background: transparent;
+  border: 1px solid #d49a9f;
+  color: #a85764;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(224, 139, 150, 0.1);
+}
+
+.organic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #f8e5e7;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+}
+
+.organic-btn:active {
+  transform: scale(0.96);
+}
+
+.thank-you {
+  margin-top: 25px;
+  font-style: italic;
+  color: #bd7380;
+  opacity: 0;
+  height: 20px;
+}
+
+.signoff-wrapper {
+  margin-top: 60px;
+}
+
+.signoff {
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #8c3b4a;
+  margin: 5px 0 0 0;
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  /* transform is handled by anime.js mostly, but setup here if needed */
+}
+
+/* Floating Particles (Bokeh/Petals) */
+#floating-particles {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+  will-change: transform, opacity;
+}

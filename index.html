@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Vixuu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise-overlay"></div>
+  <div class="ambient-light light-1"></div>
+  <div class="ambient-light light-2"></div>
+  <div class="ambient-light light-3"></div>
+  
+  <div id="floating-particles" aria-hidden="true"></div>
+
+  <main class="story-container">
+    <!-- Hero -->
+    <section class="section hero" id="hero">
+      <div class="content-wrapper reveal">
+        <h1 class="hero-title">Dear Vixuu <span class="heart">❤️</span></h1>
+        <p class="hero-subtitle">Just listen to me for a moment...</p>
+      </div>
+      <div class="scroll-prompt">
+        <div class="mouse-wheel"></div>
+        <span>Breathe & Scroll</span>
+      </div>
+    </section>
+
+    <!-- Apology Letter -->
+    <section class="section letter" id="apology">
+      <div class="letter-paper reveal">
+        <div id="apology-text" class="letter-content" aria-live="polite">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Memories / Polaroids -->
+    <section class="section memories" id="memories">
+      <div class="reveal content-wrapper">
+        <h2 class="section-title cursive">Our Story</h2>
+        <p class="section-desc">The moments I cherish the most.</p>
+      </div>
+      
+      <div class="polaroid-gallery">
+        <div class="polaroid p-left reveal" data-speed="0.12">
+          <div class="img-wrap"><img src="img1.jpg" alt="Memory" loading="lazy" /></div>
+          <div class="caption">Smiles</div>
+        </div>
+        <div class="polaroid p-right reveal" data-speed="0.15">
+          <div class="img-wrap"><img src="img2.jpg" alt="Memory" loading="lazy" /></div>
+          <div class="caption">Our time</div>
+        </div>
+        <div class="polaroid p-center reveal" data-speed="0.11">
+          <div class="img-wrap"><img src="img3.jpg" alt="Memory" loading="lazy" /></div>
+          <div class="caption">Kohinoor</div>
+        </div>
+        <div class="polaroid p-left reveal" data-speed="0.18">
+          <div class="img-wrap"><img src="img4.jpg" alt="Memory" loading="lazy" /></div>
+          <div class="caption">Always</div>
+        </div>
+        <div class="polaroid p-right reveal" data-speed="0.14">
+          <div class="img-wrap"><img src="img5.jpg" alt="Memory" loading="lazy" /></div>
+          <div class="caption">Us</div>
+        </div>
+        <div class="polaroid p-center reveal" data-speed="0.11">
+            <div class="img-wrap"><img src="img6.jpg" alt="Memory" loading="lazy" /></div>
+            <div class="caption">Forever</div>
+        </div>
+        <div class="polaroid p-left reveal" data-speed="0.11">
+            <div class="img-wrap"><img src="img7.jpg" alt="Memory" loading="lazy" /></div>
+            <div class="caption">Beautiful</div>
+        </div>
+        <div class="polaroid p-right reveal" data-speed="0.11">
+            <div class="img-wrap"><img src="img8.jpg" alt="Memory" loading="lazy" /></div>
+            <div class="caption">You & Me</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Meaning -->
+    <section class="section special" id="special">
+      <div class="content-wrapper">
+        <h2 class="reveal special-statement" id="special-message">
+          You make my life happier just being in it... thank you for accepting me with all my flaws. <br><br>I don't know how to do life without you.
+        </h2>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final" id="final">
+      <div class="content-wrapper reveal">
+        <h2 class="final-title">Can you forgive me? <span class="heart glow">❤️</span></h2>
+        
+        <div class="btn-container">
+          <button id="forgive-btn" class="organic-btn" type="button">Yes, I forgive you</button>
+        </div>
+        
+        <p id="thank-you" class="thank-you" aria-live="polite"></p>
+        
+        <div class="signoff-wrapper">
+          <p class="signoff">Always yours,</p>
+          <p class="signature">Sudarshan</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
